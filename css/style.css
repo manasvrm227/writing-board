@@ -1,22 +1,54 @@
-.descfont {
-	font-size: 20px;
-	color: black;
-}
-
-img{
-	 background-color: #D6D6C2;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 body {
-  background-color: #E0E0E0;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  color: #345648;
 }
 
-h3 {
-  color: #343a40;
-  font-size: 30px;
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
 }
 
-p {
-  font-size: 16px;
+.header {
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
 }
- 
+
+.logo {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.link {
+  text-decoration: none;
+  /* color: #39626f; */
+  color: #345648;
+}
+
+.fa-icon {
+  font-size: 22px;
+  margin: 0px 10px 0px 10px;
+  cursor: pointer;
+}
+
+.intro {
+  margin-top: 2%;
+}
+
+.subtitle {
+  font-size: 22px;
+}
+
+#blog {
+  margin-top: 3%;
+}
+
+.blog-head {
+  display: block;
+}
