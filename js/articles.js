@@ -21,7 +21,7 @@ article.innerHTML =
     return (
       `<div class="blog-head">` +
       `<div class="title">` +
-      `<a href=${blog.link} target="_blank">` +
+      `<a href=${blog.link} target="_blank" class="link">` +
       blog.title +
       "</a>" +
       `</div>` +
@@ -34,5 +34,5 @@ article.innerHTML =
       `</div>` +
       "<br/>"
     );
-  }) +
+  }).join("") +
   "</div>";
