@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title> Manas' Writing Board </title>
+<head>
+<!-- Link Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<!-- Link Bootstrap JS and JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" href="../img/icon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<br>
+<div class="container">
+<h3> From Java IO to Java NIO </h3>
+<br>
+<img src="../img/serialize.jpg" width= "100%" height="460">
+<br><br>
+<p>December 28, 2018<br>
+<b>Serialization</b> is a mechanism of converting the state of an object into a byte stream. <b>Deserialization</b> is the reverse process where the byte stream is used to recreate the actual Java object in memory. This mechanism is used to persist the object.
+<br>
+The byte stream created is platform independent. So, the object serialized on one platform can be deserialized on a different platform.<br>
+To make a Java object serializable we implement the java.io.Serializable interface.
+The ObjectOutputStream class contains writeObject() method for serializing an Object.
+<p style ="color: #903a08;"> 
+<b>public final void writeObject(Object obj) throws IOException</b>
+</p>
+The ObjectInputStream class contains readObject() method for deserializing an object.
+<br>
+<p style ="color: #903a08;"> 
+<b>public final Object readObject() throws IOException, ClassNotFoundException</b>					   
+</p>
+
+<b>Benefits of Serialization:</b>
+<br>
+1. To save/persist state of an object.
+2. To travel an object across a network.
+<br>
+Only the objects of those classes can be serialized which are implementing java.io.Serializable interface. Static data members are not part of serialization.<br>
+Serializable is a marker interface (has no data member and method). It is used to “mark” java classes so that objects of these classes may get certain capability.<br>
+<br>
+<b>SerialVersionUID </b>
+The Serialization runtime associates a version number with each Serializable class called a SerialVersionUID, which is used during Deserialization to verify that sender and reciever of a serialized object have loaded classes for that object which are compatible with respect to serialization.<br>
+<br>
+
+<b>How deserialization works? </b>
+<br>
+Deserialization is the process by which the object previously serialized is reconstructed back into it’s original form i.e. object instance. The input to the deserialization process is the stream of bytes which we get over the other end of network OR we simply read it from file system/database.
+<br>
+
+</p>
+</div>
+</body>
+</html>
