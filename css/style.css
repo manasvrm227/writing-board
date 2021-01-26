@@ -4,6 +4,29 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+#title {
+  margin-left: 20px;
+  text-decoration: none;
+  /* color: #39626f; */
+  color: #345648;
+}
+
+.profile {
+  height: 70px;
+  width: 70px;
+}
+
+.photo {
+  height: 70px;
+  width: 70px;
+  background-size: cover;
+}
+
 body {
   background: linear-gradient(to right, #e0eafc, #cfdef3);
   color: #345648;
