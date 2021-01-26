@@ -17,40 +17,70 @@
 <div class="container">
 <h3> From Java IO to Java NIO </h3>
 <br>
-<img src="../img/serialize.jpg" width= "100%" height="460">
+<img src="../img/javaIO.png" width= "100%" height="460">
 <br><br>
-<p>December 28, 2018<br>
-<b>Serialization</b> is a mechanism of converting the state of an object into a byte stream. <b>Deserialization</b> is the reverse process where the byte stream is used to recreate the actual Java object in memory. This mechanism is used to persist the object.
-<br>
-The byte stream created is platform independent. So, the object serialized on one platform can be deserialized on a different platform.<br>
-To make a Java object serializable we implement the java.io.Serializable interface.
-The ObjectOutputStream class contains writeObject() method for serializing an Object.
-<p style ="color: #903a08;"> 
-<b>public final void writeObject(Object obj) throws IOException</b>
-</p>
-The ObjectInputStream class contains readObject() method for deserializing an object.
-<br>
-<p style ="color: #903a08;"> 
-<b>public final Object readObject() throws IOException, ClassNotFoundException</b>					   
-</p>
+<p>December 28, 2019<br>
 
-<b>Benefits of Serialization:</b>
+The java.io and java.nio package contains nearly all classes one need to perform input and output (I/O) in Java. It focuses on I/O Streams, these streams simplifies I/O operations.
 <br>
-1. To save/persist state of an object.
-2. To travel an object across a network.
+Java NIO (New IO) was introduced from JDK 4 to implement high-speed IO operations. It is an alternative to the standard IO API’s.
+<br><br>
+<b>Stream is defined as sequence of data.</b>
 <br>
-Only the objects of those classes can be serialized which are implementing java.io.Serializable interface. Static data members are not part of serialization.<br>
-Serializable is a marker interface (has no data member and method). It is used to “mark” java classes so that objects of these classes may get certain capability.<br>
+<b>InputStream</b>, it represents input stream of bytes, to read data from source.
+<b>OutputStream</b>, it represents input stream of bytes, to write data to destination. An output stream accepts output bytes and sends them to some sink.
+
+<table>
+  <tr>
+    <th>IO</th>
+    <th>NIO</th>
+  </tr>
+  <tr>
+    <td>It is based on the Blocking I/O operation</td>
+    <td>It is based on the Non-blocking I/O operation</td>
+  </tr>
+  <tr>
+    <td>It is Stream-oriented</td>
+    <td>It is Buffer-oriented</td>   
+  </tr>
+  <tr>
+    <td>Channels are not available</td>
+    <td>Channels are available for Non-blocking I/O operation</td>
+  </tr>
+  <tr>
+    <td>Selectors are not available</td>
+    <td>Selectors are available for Non-blocking I/O operation</td>
+  </tr>
+</table> 
+
 <br>
-<b>SerialVersionUID </b>
-The Serialization runtime associates a version number with each Serializable class called a SerialVersionUID, which is used during Deserialization to verify that sender and reciever of a serialized object have loaded classes for that object which are compatible with respect to serialization.<br>
 <br>
 
-<b>How deserialization works? </b>
-<br>
-Deserialization is the process by which the object previously serialized is reconstructed back into it’s original form i.e. object instance. The input to the deserialization process is the stream of bytes which we get over the other end of network OR we simply read it from file system/database.
-<br>
+1. <b><u>Stream oriented vs Buffer Oriented Packages:</b></u><br>
+	Java IO is a stream-oriented package which means that it can be read one or more bytes at a time from a stream. It uses a stream for transferring the data between data source/sink and java program. It is a unidirectional data transfer. Unlike Java IO, Java NIO is a buffer oriented package. This means that the data is read into a buffer from which it is further processed using a channel. For example, a thread asking a channel to read data into a buffer and while the channel is reading data to the buffer simultaneously the thread can go for some other work. Once the data is read into the buffer, the thread can then continue to process the work which it had left during the read operation. Therefore, NIO is a bi-directional data transfer. 
+	
+	<br><br>
+2. <b><u>Blocking IO vs Non Blocking IO Packages: </b></u><br>
+	Java IO is a blocking IO. This means that if a thread is invoking a read() or write() operation, that thread is blocked until there is some data to read or the data is fully written. That’s why it is synchronous IO or blocking IO.
 
+	Unlike Java IO, Java NIO is a non-blocking IO. This means that if a thread is invoking a read() or write() operation, that thread is not blocked until there is some data to read or the data is fully written rather the thread go on something else. That’s why it is an asynchronous IO or non-blocking IO.	
+
+	<br><br>
+3. <b><u>Channels: </b></u><br>
+	A channel is a medium for efficient data transmission between entity and buffer. It acts as a gateway for open connection with data source/sink.
+
+	<br><br>
+4.	<b><u>Selector:</b></u><br>
+	The selector selects the channel among the multiple IO channels using the single thread.
+	It basically select the channels which are ready for the I/O operation.
+	
+	<br><br>
+	
+	<b>Java NIO is considered to be faster than regular IO because:</b><br>
+
+	* Java NIO supports non-blocking mode. Non-blocking IO is faster than blocking IO because it does not require a dedicated thread per connection. This can significantly improve scalability when you need to handle lots of simultaneous connections, as threads are not very scalable.<br><br>
+
+	* Java NIO reduces data copying by supporting direct memory buffers. It is possible to read and write NIO sockets without any data copying at all. With traditional Java IO, the data is copied multiple times between the socket buffers and byte arrays.
 </p>
 </div>
 </body>

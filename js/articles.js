@@ -1,5 +1,11 @@
 const Articles = [
   {
+    title: "From Java IO to Java NIO",
+    date: "December 28, 2019",
+    description: "Transition from IO to NIO(New IO)",
+    link: "pages/javaIoToNio.html",
+  },
+  {
     title: "Java Serialization and Deserialization",
     date: "August 01, 2018",
     description: "Deep dive into Serialization and Deserialization.",
