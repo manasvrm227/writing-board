@@ -2,7 +2,7 @@ const Articles = [
  {
     title: "SOLID Design Principles",
     date: "Sep 28, 2020",
-    description: "SOLID design principles is very much preferred in",
+    description: "SOLID design principles is very much preferred in object-oriented software.",
     link: "pages/solidDesignPrinciples.html",
   }, 
  {
