@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title> Manas' Writing Board </title>
+<head>
+<!-- Link Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<!-- Link Bootstrap JS and JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" href="../img/icon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<br>
+<div class="container">
+<h3> SOLID Design Principles </h3>
+<br>
+<p>Sep 28, 2020<br>
+SOLID design principles is very much preferred in object-oriented software development. Adopting these practices can also contribute to avoiding code smells, <br>
+refactoring code, and Agile or Adaptive software development.  It’s a mnemonic acronym for the following five design principles:<br>
+
+<div>
+<ul>
+<li> <b>S</b>ingle Responsibility Principle </li>
+<li> <b>O</b>pen/Closed Principle </li>
+<li> <b>L</b>iskov Substitution Principle </li>
+<li> <b>I</b>nterface Segregation Principle </li>
+<li> <b>D</b>ependency Inversion </li> </ul></div>
+<br>
+<b>Single Responsibility Principle:</b> A class should have one, and only one reason to change. <br>
+<p>
+public class Employee { <br>
+    private String name; <br>
+    private String designation; <br>
+    private double salary; <br>
+    //constructor, getters and setters <br>
+    // methods that directly relate to the employee properties <br>
+    
+     public String convertSalaryToString(double salary){ <br>
+        return String.valueOf(salary);
+    }<br>
+}<br>
+
+Now, the Employee class works well, and we can store as many employees as we like in our application.  <br>
+Let's throw caution to the wind and add a print method: <br>
+
+public class Employee { <br>
+    //... <br>
+ 
+    void printNameToConsole(){ <br>
+        // our code for printing the name of employee <br>
+    }<br>
+}<br>
+
+
+This code does, however, violate the single responsibility principle we outlined earlier. To fix our mess, <br>
+we should implement a separate class that is concerned only with printing the name of the employee.<br>
+
+<br>
+<b>Open/Closed Principle:</b> Objects or entities should be open for extension but closed for modification. <br>
+In doing so, we stop ourselves from modifying existing code and causing potential new bugs in an otherwise running application.<br>
+Of course, the one exception to the rule is when fixing bugs in existing code.<br>
+
+<br>
+
+<b>Liskov Substitution:</b> If class A is a subtype of class B, then we should be able to replace B with <br>
+A without disrupting the behavior of our program.<br>
+<br>
+public interface Car { <br>
+    void turnOnEngine(); <br>
+    void accelerate(); <br>
+}<br>
+ 
+public class MotorCar implements Car { <br>
+    private Engine engine; <br>
+    //Constructors, getters + setters <br>
+    public void turnOnEngine() { <br>
+        //turn on the engine! <br>
+        engine.on(); <br>
+    }
+    public void accelerate() { <br>
+        //move forward! <br>
+       engine.powerOn(1000); <br>
+    }<br>
+}<br><br>
+This means that every subclass or derived class should be substitutable for their base or parent class.<br>
+
+<br>
+<b>Interface Segregation Principle:</b> Larger interfaces should be split into smaller ones. By doing so, <br>
+we can ensure that implementing classes only need to be concerned about the methods that are of interest to them. <br>
+
+<br> 
+<b>Dependency Inversion:</b> The principle of Dependency Inversion refers to the decoupling of software modules. <br>
+This way, instead of high-level modules depending on low-level modules, both will depend on abstractions. <br>
+ <br>
+public class Windows98Machine {<br>
+ <br>
+    private final StandardKeyboard keyboard; <br>
+    private final Monitor monitor;<br>
+ 
+    public Windows98Machine() { <br>
+        monitor = new Monitor(); <br>
+        keyboard = new StandardKeyboard(); <br>
+    }<br>
+}<br><br>
+Here code is tightly coupled.<br><br>
+The better approach will be:<br><br>
+public class Windows98Machine{<br>
+
+    private final Keyboard keyboard; <br>
+    private final Monitor monitor;<br>
+<br>
+    public Windows98Machine(Keyboard keyboard, Monitor monitor) { <br>
+        this.keyboard = keyboard; <br>
+        this.monitor = monitor;<br>
+    }<br>
+}<br>
+ <br>
+Here, we're using the dependency injection pattern here to facilitate adding the Keyboard dependency into the Windows98Machine class.<br>
+
+
+
+
+</p>
+</div>
+</body>
+</html>

@@ -1,5 +1,11 @@
 const Articles = [
-  {
+ {
+    title: "SOLID Design Principles",
+    date: "Sep 28, 2020",
+    description: "SOLID design principles is very much preferred in",
+    link: "pages/solidDesignPrinciples.html",
+  }, 
+ {
     title: "GitHub special repository",
     date: "July 07, 2020",
     description: "Today, I made a mistake",
