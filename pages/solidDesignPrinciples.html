@@ -118,12 +118,12 @@
             </p>
             <pre>
                 <code>
-                    public class Windows98Machine {
+                    public class WindowsMachine {
                     
                     private final StandardKeyboard keyboard; 
                     private final Monitor monitor;
             
-                    public Windows98Machine() { 
+                    public WindowsMachine() { 
                         monitor = new Monitor(); 
                         keyboard = new StandardKeyboard(); 
                     }
@@ -131,12 +131,12 @@
 
                     // <i>Here code is tightly coupled. The better approach will be:</i>
 
-                    public class Windows98Machine{
+                    public class WindowsMachine{
             
                         private final Keyboard keyboard; 
                         private final Monitor monitor;
                         
-                        public Windows98Machine(Keyboard keyboard, Monitor monitor) { 
+                        public WindowsMachine(Keyboard keyboard, Monitor monitor) { 
                             this.keyboard = keyboard; 
                             this.monitor = monitor;
                         }
@@ -144,7 +144,7 @@
                 </code>
             </pre>       
             Here, we're using the dependency injection pattern here to facilitate
-            adding the Keyboard dependency into the Windows98Machine class.
+            adding the Keyboard dependency into the WindowsMachine class.
         
       </p>
     </div>
